@@ -1,60 +1,92 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #040e1a;
-  }
-  
-  body {
-    background-image: url("../img/fundo.jpg");
-    background-position: center;
-    background-size: cover;
-    height: 600px;
-  }
-  button {
-    background-color: #ffff;
-    color: #1a55ad;
-    border: 2px solid #1a55ad;
-    padding: 0.3rem 0.6rem;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
-  }
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #040e1a;
+}
 
-  button:hover {
-    background-color: #0c2f63;
-  }
-  
-  button:hover > i {
-    color: #fff;
-  }
-  
-  button i {
-    pointer-events: none;
-    color: #1a55ad;
-    font-weight: bold;
-  }
+body {
+  background-image: url("../img/fundo.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 600px;
+}
+button {
+  background-color: #ffff;
+  color: #1a55ad;
+  border: 2px solid #1a55ad;
+  padding: 0.3rem 0.6rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
 
-  input,
+button:hover {
+  background-color: #0c2f63;
+}
+
+button:hover > i {
+  color: #fff;
+}
+
+button i {
+  pointer-events: none;
+  color: #1a55ad;
+  font-weight: bold;
+}
+
+input,
 select {
-  padding: 0.25rem 0.5rem;
+padding: 0.25rem 0.5rem;
 }
 
 .hide {
-  display: none;
+display: none;
 }
 
 /* Todo Header */
 .todo-container {
-  max-width: 450px;
-  margin: 3rem auto 0;
-  background-color: #8db2c8;
-  padding: 1.5rem;
-  border-radius: 15px;
+max-width: 450px;
+margin: 3rem auto 0;
+background-color: #8db2c8;
+padding: 1.5rem;
+border-radius: 15px;
+}
+
+.todo-container header {
+text-align: center;
+padding: 0 1rem 1rem;
+border-bottom: 1px solid #a7acb1;
+}
+
+/* Form */
+#nota-form,
+#edit-form {
+padding: 10px;
+border-bottom: 1px solid #a7acb1;
+}
+
+#nota-form p,
+#edit-form p {
+margin-bottom: 0.5rem;
+font-weight: bold;
+}
+
+.form-control {
+display: flex;
+}
+
+.form-control input {
+margin-right: 2px;
+}
+
+#cancel-edit-btn {
+margin-top: 10px;
+color: #332f2f;
 }
 
 .todo-container header {
