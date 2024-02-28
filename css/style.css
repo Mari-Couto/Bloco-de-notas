@@ -29,7 +29,7 @@ button:hover {
   background-color: #0c2f63;
 }
 
-button:hover > i {
+button:hover i {
   color: #fff;
 }
 
@@ -42,6 +42,10 @@ button i {
 input,
 select {
 padding: 0.25rem 0.5rem;
+}
+input{
+  border-radius: 3px;
+color: #243447;
 }
 
 .hide {
@@ -60,14 +64,14 @@ border-radius: 15px;
 .todo-container header {
 text-align: center;
 padding: 0 1rem 1rem;
-border-bottom: 1px solid #a7acb1;
+border-bottom: 1px solid #818b94;
 }
 
 /* Form */
 #nota-form,
 #edit-form {
 padding: 10px;
-border-bottom: 1px solid #a7acb1;
+border-bottom: 1px solid #818b94;
 }
 
 #nota-form p,
@@ -88,9 +92,107 @@ margin-right: 2px;
 margin-top: 10px;
 color: #332f2f;
 }
+#cancel-edit-btn:hover {
+  color: #fff;
+  background-color: #0c2f63;
+}
+
 
 .todo-container header {
   text-align: center;
   padding: 0 1rem 1rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #818b94;
 }
+
+/* Toolbar */
+#toolbar{
+  padding: 10px;
+  border-bottom: 1px solid #818b94;
+  display: flex;
+}
+
+#toolbar h4{
+  margin-bottom: 5px;
+}
+
+#search{
+  border-right: 1px solid #65707a;
+  padding-right: 10px;
+  margin-right: 10px;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+
+#search form{
+  display: flex;
+}
+
+#search input{
+  width: 100%;
+  margin-right: 2px;
+}
+
+#filter {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+#filter select{
+  flex: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
