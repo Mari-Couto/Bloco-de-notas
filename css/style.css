@@ -143,9 +143,35 @@ color: #332f2f;
   flex: 1;
 }
 
+/* List */
+.tasks {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 1rem;
+  border-bottom: 1px solid #818b94;
+  transition: 0.4s;
+}
+
+.tasks h3 {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+.tasks button {
+  margin-left: 0.4rem;
+}
+
+.done {
+  background-color: #44607b;
+}
 
 
-
+.done h3 {
+  color: #fff;
+  text-decoration: line-through;
+  font-style: italic;
+}
 
 
 
