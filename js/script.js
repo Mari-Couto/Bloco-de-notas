@@ -5,6 +5,18 @@ const editForm = document.querySelector("#edit-form");
 const editinput = document.querySelector("#edit-input");
 const cancelEditBtn = document.querySelector("#cancel-edit-btn");
 
+const saveNota = (text) => {
+
+    const nota = document.createElement("div");
+    nota.classList.add("nota");
+
+    const notaTitle = document.createElement("h3");
+    notaTitle.innerText = text;
+    nota.appendChild(notaTitle);
+
+    console.log(nota)
+}
+
 
 notaForm.addEventListener("submit", (e) =>{
 
@@ -13,6 +25,6 @@ notaForm.addEventListener("submit", (e) =>{
     const inputValue = notaInput.value
 
     if(inputValue){
-        console.log(inputValue)
+       saveNota(inputValue)
     }
 });
