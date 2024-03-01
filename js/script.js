@@ -32,7 +32,10 @@ const saveNota = (text) => {
     deleteBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>'
     nota.appendChild(deleteBtn)
 
-    tasksList.appendChild(nota)
+    tasksList.appendChild(nota);
+
+    notaInput.value = " ";
+    notaInput.focus();
 }
 
 /* envio de formulário */
