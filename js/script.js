@@ -8,7 +8,7 @@ const cancelEditBtn = document.querySelector("#cancel-edit-btn");
 const saveNota = (text) => {
 
     const nota = document.createElement("div");
-    nota.classList.add("nota");
+    nota.classList.add("tasks");
 
     const notaTitle = document.createElement("h3");
     notaTitle.innerText = text;

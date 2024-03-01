@@ -97,13 +97,6 @@ color: #332f2f;
   background-color: #0c2f63;
 }
 
-
-.todo-container header {
-  text-align: center;
-  padding: 0 1rem 1rem;
-  border-bottom: 1px solid #818b94;
-}
-
 /* Toolbar */
 #toolbar{
   padding: 10px;
@@ -144,9 +137,13 @@ color: #332f2f;
 }
 
 /* List */
+.Tasks-list {
+  display: flex;
+  flex-direction: column;
+}
+
 .tasks {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   padding: 1rem 1rem;
   border-bottom: 1px solid #818b94;
@@ -161,6 +158,7 @@ color: #332f2f;
 .tasks button {
   margin-left: 0.4rem;
 }
+
 
 .done {
   background-color: #44607b;
