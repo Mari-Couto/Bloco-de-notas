@@ -49,3 +49,40 @@ notaForm.addEventListener("submit", (e) =>{
        saveNota(inputValue)
     }
 });
+
+const toggleForms = () => {
+    editForm.classList.toggle("hide");
+    notaForm.classList.toggle("hide");
+    tasksList.classList.toggle("hide");
+}
+
+/* Funcionalidades dos botões */
+document.addEventListener("click", (e) => {
+
+    const targetEl = e.target;
+    const parentEl = targetEl.closest("div");
+    let todoTitle;
+
+    if(parentEl && parentEl.querySelector("h3")){
+        todoTitle = parentEl.querySelector("h3").innerText;
+    }
+
+    if(targetEl.classList.contains("finish-tasks")){
+        parentEl.classList.toggle("done");
+    }
+
+    if(targetEl.classList.contains("remove-tasks")) {
+        parentEl.remove();
+    }
+
+    if(targetEl.classList.contains("edit-tasks")) {
+        toggleForms();
+    }
+});
+
+/* evento do cancelamento */
+cancelEditBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    toggleForms();
+})
