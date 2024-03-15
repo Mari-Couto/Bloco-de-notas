@@ -4,6 +4,10 @@ const tasksList = document.querySelector("#Tasks-list");
 const editForm = document.querySelector("#edit-form");
 const editInput = document.querySelector("#edit-input");
 const cancelEditBtn = document.querySelector("#cancel-edit-btn");
+const searchInput = document.querySelector("#search-input");  
+const eraseBtn = document.querySelector("#erase-button");  
+const filterBtn = document.querySelector("#filter-select");  
+
 
 let oldInputValue; 
 
@@ -73,6 +77,22 @@ const updateTodo = (text) => {
 
 }
 
+//busca
+const getSearchtasks = (search) => {
+    const todos = document.querySelectorAll(".tasks")
+    todos.forEach((tasks) => {
+        let todoTitle = tasks.querySelector("h3").innerText.toLowerCase();
+
+        const normalizedSearch = search.toLowerCase();
+
+        tasks.style.display = "flex";
+
+        if(!todoTitle.includes(normalizedSearch)) {
+            tasks.style.display = "none";
+        }
+    })
+}
+
 
 // Funcionalidades dos botões 
 document.addEventListener("click", (e) => {
@@ -110,7 +130,7 @@ cancelEditBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
     toggleForms();
-})
+});
 
 // envio edição
 editForm.addEventListener("submit", (e) => {
@@ -123,4 +143,21 @@ editForm.addEventListener("submit", (e) => {
     }
 
     toggleForms()
+});
+
+//busca
+searchInput.addEventListener("keyup", (e) => {
+
+    const search = e.target.value;
+
+    getSearchtasks(search);
+});
+
+//botão apagar
+eraseBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    searchInput.value = "";
+
+    searchInput.dispatchEvent(new Event("keyup"));
 })
