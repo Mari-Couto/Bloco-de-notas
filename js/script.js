@@ -93,6 +93,32 @@ const getSearchtasks = (search) => {
     })
 }
 
+const filterTasks = (filterValue) => {
+
+    const todos = document.querySelectorAll(".tasks");
+
+    switch(filterValue) {
+        case "all":
+           todos.forEach((todo) => todo.style.display = "flex")
+        break
+
+        case "done":
+           todos.forEach((todo) => todo.classList.contains("done")
+        ? (todo.style.display = "flex")
+        : (todo.style.display = "none"))
+        break
+
+        case "Tasks":
+          !todos.forEach((todo) => todo.classList.contains("done")
+        ? (todo.style.display = "flex")
+        : (todo.style.display = "none"))
+        break;
+
+        default:
+            break;
+    }
+}
+
 
 // Funcionalidades dos botões 
 document.addEventListener("click", (e) => {
@@ -160,4 +186,12 @@ eraseBtn.addEventListener("click", (e) => {
     searchInput.value = "";
 
     searchInput.dispatchEvent(new Event("keyup"));
+})
+
+//filtragem
+filterBtn.addEventListener("change", (e) =>{
+    const filterValue = e.target.value;
+
+    filterTasks(filterValue);
+
 })

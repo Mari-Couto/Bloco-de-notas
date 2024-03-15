@@ -6,6 +6,10 @@
   color: #040e1a;
 }
 
+html {
+  height: 100vh;
+}
+
 body {
   background-image: url("../img/fundo.jpg");
   background-position: center;
