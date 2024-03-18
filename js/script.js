@@ -36,22 +36,27 @@ const saveNota = (text, done = 0, save = 1) => {
     const deleteBtn = document.createElement("button")
     deleteBtn.classList.add("remove-tasks")
     deleteBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>'
-    nota.appendChild(deleteBtn)
+    deleteBtn.addEventListener("click", () => {
+        nota.remove();
+        removeTasksLocalStorage(text);
+    });
+    nota.appendChild(deleteBtn);
 
     // localStorage
-    if(done) {
-       nota.classList.add("done") 
+    if (done) {
+       nota.classList.add("done");
     }
 
-    if(save) {
-        saveTasksLocalStorage({text, done})
+    if (save) {
+        saveTasksLocalStorage({ text, done });
     }
 
     tasksList.appendChild(nota);
 
-    notaInput.value = " ";
+    notaInput.value = "";
     notaInput.focus();
-}
+};
+
 
 // envio de formulário 
 notaForm.addEventListener("submit", (e) =>{
@@ -150,6 +155,8 @@ document.addEventListener("click", (e) => {
 
     if(targetEl.classList.contains("remove-tasks")) {
         parentEl.remove();
+
+        removeTasksLocalStorage(todoTitle);
     }
 
     if(targetEl.classList.contains("edit-tasks")) {
@@ -226,8 +233,18 @@ const saveTasksLocalStorage = (tasks) => {
 
     saveTasks.push(tasks)
 
-    localStorage.setItem("saveTasks", JSON.stringify(saveTasks))
+    localStorage.setItem("saveTasks", JSON.stringify(saveTasks));
 
 };
+
+const removeTasksLocalStorage = (tasksText) => {
+
+    const saveTasks = getTasksLocalStorage();
+
+    const filteredTasks = saveTasks.filter((tasks) => tasks.text !== tasksText)
+
+    localStorage.setItem("saveTasks", JSON.stringify(filteredTasks));
+}
+
 
 loadTasks();
