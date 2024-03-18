@@ -213,6 +213,14 @@ const getTasksLocalStorage = () => {
     return saveTasks;
 };
 
+const loadTasks = () => {
+    const  saveTasks = getTasksLocalStorage();
+
+    saveTasks.forEach((tasks) => {
+        saveNota(tasks.text, tasks.done, 0)
+    })
+}
+
 const saveTasksLocalStorage = (tasks) => {
     const saveTasks = getTasksLocalStorage()
 
@@ -221,3 +229,5 @@ const saveTasksLocalStorage = (tasks) => {
     localStorage.setItem("saveTasks", JSON.stringify(saveTasks))
 
 };
+
+loadTasks();
