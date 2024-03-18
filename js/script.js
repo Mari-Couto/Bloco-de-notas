@@ -87,6 +87,7 @@ const updateTodo = (text) => {
         if(todoTitle.innerText === oldInputValue) {
             todoTitle.innerText = text;
         }
+
     })
 
 }
@@ -151,6 +152,9 @@ document.addEventListener("click", (e) => {
 
     if(targetEl.classList.contains("finish-tasks")){
         parentEl.classList.toggle("done");
+
+        updateTasksStatusLocalStorage(todoTitle);
+        
     }
 
     if(targetEl.classList.contains("remove-tasks")) {
@@ -244,7 +248,27 @@ const removeTasksLocalStorage = (tasksText) => {
     const filteredTasks = saveTasks.filter((tasks) => tasks.text !== tasksText)
 
     localStorage.setItem("saveTasks", JSON.stringify(filteredTasks));
+};
+
+const updateTasksStatusLocalStorage = (tasksText) => {
+
+    const saveTasks = getTasksLocalStorage();
+
+    saveTasks.map((tasks) => tasks.text === tasksText ? tasks.done = !tasks.done : null);
+
+    localStorage.setItem("saveTasks", JSON.stringify(saveTasks));
+
 }
 
+const updateTasksLocalStorage = (tasksOldText, tasksNewText) => {
+
+    const saveTasks = getTasksLocalStorage();
+
+    saveTasks.map((tasks) =>
+     tasks.text === tasksOldText ? tasks.done = !tasks.done : null);
+
+    localStorage.setItem("saveTasks", JSON.stringify(saveTasks));
+
+}
 
 loadTasks();
