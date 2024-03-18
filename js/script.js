@@ -11,7 +11,7 @@ const filterBtn = document.querySelector("#filter-select");
 
 let oldInputValue; 
 
-const saveNota = (text) => {
+const saveNota = (text, done = 0, save = 1) => {
 
     const nota = document.createElement("div");
     nota.classList.add("tasks");
@@ -37,6 +37,15 @@ const saveNota = (text) => {
     deleteBtn.classList.add("remove-tasks")
     deleteBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>'
     nota.appendChild(deleteBtn)
+
+    // localStorage
+    if(done) {
+       nota.classList.add("done") 
+    }
+
+    if(save) {
+        saveTasksLocalStorage({text, done})
+    }
 
     tasksList.appendChild(nota);
 
@@ -195,3 +204,20 @@ filterBtn.addEventListener("change", (e) =>{
     filterTasks(filterValue);
 
 })
+
+
+//local storage
+const getTasksLocalStorage = () => {
+    const saveTasks = JSON.parse(localStorage.getItem("saveTasks")) || [];
+
+    return saveTasks;
+};
+
+const saveTasksLocalStorage = (tasks) => {
+    const saveTasks = getTasksLocalStorage()
+
+    saveTasks.push(tasks)
+
+    localStorage.setItem("saveTasks", JSON.stringify(saveTasks))
+
+};
