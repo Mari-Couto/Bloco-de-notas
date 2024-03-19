@@ -86,8 +86,9 @@ const updateTodo = (text) => {
 
         if(todoTitle.innerText === oldInputValue) {
             todoTitle.innerText = text;
-        }
 
+            updateTasksLocalStorage(oldInputValue, text)
+        }
     })
 
 }
@@ -268,7 +269,7 @@ const updateTasksLocalStorage = (tasksOldText, tasksNewText) => {
     const saveTasks = getTasksLocalStorage();
 
     saveTasks.map((tasks) =>
-     tasks.text === tasksOldText ? tasks.done = !tasks.done : null);
+     tasks.text === tasksOldText ? (tasks.text = tasksNewText) : null);
 
     localStorage.setItem("saveTasks", JSON.stringify(saveTasks));
 
