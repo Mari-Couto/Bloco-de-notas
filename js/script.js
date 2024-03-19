@@ -242,23 +242,26 @@ const saveTasksLocalStorage = (tasks) => {
 };
 
 const removeTasksLocalStorage = (tasksText) => {
-
     const saveTasks = getTasksLocalStorage();
 
-    const filteredTasks = saveTasks.filter((tasks) => tasks.text !== tasksText)
+    const filteredTasks = saveTasks.filter((tasks) => tasks.text !== tasksText);
 
     localStorage.setItem("saveTasks", JSON.stringify(filteredTasks));
 };
 
-const updateTasksStatusLocalStorage = (tasksText) => {
 
+const updateTasksStatusLocalStorage = (tasksText) => {
     const saveTasks = getTasksLocalStorage();
 
-    saveTasks.map((tasks) => tasks.text === tasksText ? tasks.done = !tasks.done : null);
+    saveTasks.forEach((task) => {
+        if (task.text === tasksText) {
+            task.done = task.done === 0 ? 1 : 0;
+        }
+    });
 
     localStorage.setItem("saveTasks", JSON.stringify(saveTasks));
+};
 
-}
 
 const updateTasksLocalStorage = (tasksOldText, tasksNewText) => {
 
